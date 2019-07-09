@@ -92,7 +92,7 @@ public class ChooseSipper extends AppCompatActivity {
                         public void onClick(DialogInterface dialog, int which) {
                             Intent newIntent = null;
                             Random rand = new Random();
-                            int index = rand.nextInt();
+                            int index = rand.nextInt(3);
                             switch (index) {
                                 case 0:
                                     newIntent = new Intent(ChooseSipper.this, FillGap.class);
