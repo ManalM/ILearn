@@ -14,7 +14,7 @@ import java.util.Random;
 
 public class HomeActivity extends AppCompatActivity {
 
-    private TextView numbers , exercise;
+    private TextView numbers , exercise , drawing;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +22,7 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         numbers = (TextView) findViewById(R.id.numbers);
         exercise= (TextView) findViewById(R.id.exercise);
-
+        drawing = (TextView) findViewById(R.id.drawing);
 
 
         exercise.setOnClickListener(new View.OnClickListener() {
@@ -56,6 +56,15 @@ public class HomeActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent intent = new Intent(HomeActivity.this, NumbersActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        drawing.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this, Drawing.class);
                 startActivity(intent);
                 finish();
             }

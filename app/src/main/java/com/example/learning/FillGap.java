@@ -46,48 +46,63 @@ public class FillGap extends AppCompatActivity {
             public void onClick(View v) {
 
 
-                if (zero.getText().toString().equals("zero") ||  four.getText().toString().equals("four") ){
+                if (zero.getText().toString().equals("zero") ||  zero.getText().toString().equals("Zero") ||zero.getText().toString().equals("ZERO") ){
 
-                    claps.start();
+                    if (four.getText().toString().equals("four") ||four.getText().toString().equals("Four")||four.getText().toString().equals("FOUR") ) {
+                        claps.start();
 
-                    AlertDialog.Builder builder = new AlertDialog.Builder(FillGap.this);
-                    builder.setTitle("Woow !!!");
-                    builder.setMessage("Congratulation!!");
-                    builder.setPositiveButton("Do another exercise", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(FillGap.this);
+                        builder.setTitle("Woow !!!");
+                        builder.setMessage("Congratulation!!");
+                        builder.setPositiveButton("Do another exercise", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
 
-                            Intent newIntent = null;
-                            Random rand = new Random();
+                                Intent newIntent = null;
+                                Random rand = new Random();
 
-                            int index = rand.nextInt(3);
-                            switch (index) {
-                                case 0:
-                                    newIntent = new Intent(FillGap.this, ChooseRadio.class);
-                                    break;
-                                case 1:
-                                    newIntent = new Intent(FillGap.this, ChooseSipper.class);
-                                    break;
-                                case 2:
-                                    newIntent = new Intent(FillGap.this, Match.class);
-                                    break;
+                                int index = rand.nextInt(3);
+                                switch (index) {
+                                    case 0:
+                                        newIntent = new Intent(FillGap.this, ChooseRadio.class);
+                                        break;
+                                    case 1:
+                                        newIntent = new Intent(FillGap.this, ChooseSipper.class);
+                                        break;
+                                    case 2:
+                                        newIntent = new Intent(FillGap.this, Match.class);
+                                        break;
 
+                                }
+
+                                startActivity(newIntent);
+                                claps.stop();
                             }
+                        });
+                        builder.setNegativeButton("Exit exercises ", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Intent intent = new Intent(FillGap.this, HomeActivity.class);
+                                startActivity(intent);
+                                claps.stop();
+                            }
+                        });
+                        builder.show();
+                    }else{
+                        AlertDialog.Builder builder = new AlertDialog.Builder(FillGap.this);
+                        builder.setTitle("Something Wrong");
+                        builder.setMessage("one of the answers is wrong :( !!");
+                        builder.setPositiveButton("Go Back", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
 
-                            startActivity(newIntent);
-                            claps.stop();
-                        }
-                    });
-                    builder.setNegativeButton("Exit exercises ", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            Intent intent = new Intent(FillGap.this ,HomeActivity.class);
-                            startActivity(intent);
-                            claps.stop();
-                        }
-                    });
-                    builder.show();
+                                Intent intent = new Intent(FillGap.this ,FillGap.class);
+                                startActivity(intent);
+                            }
+                        });
+                        builder.show();
 
+                    }
 
                 }else {
 

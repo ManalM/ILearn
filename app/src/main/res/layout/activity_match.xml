@@ -26,20 +26,30 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.498">
 
-        <ImageView
+        <LinearLayout
             android:id="@+id/target6"
-            android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
+            android:layout_width="match_parent">
+        <ImageView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:paddingBottom="16dp"
             app:srcCompat="@drawable/six" />
-
+        </LinearLayout>
+    <LinearLayout
+        android:id="@+id/target3"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_width="match_parent">
         <ImageView
-            android:id="@+id/target3"
+
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             app:srcCompat="@drawable/three" />
+    </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
@@ -114,7 +124,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="136dp"
+        android:layout_marginTop="100dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:text="Match the picture with its count:"
